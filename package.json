@@ -1,0 +1,36 @@
+{
+  "name": "magazun",
+  "version": "1.0.0",
+  "description": "тестове завдання crud",
+  "main": "app.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "eslint": "^7.11.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StrongGarl1c/magazunCRUD.git"
+  },
+  "keywords": [
+    "create",
+    "reade",
+    "update",
+    "delete",
+    "nodeJs",
+    "expressJs",
+    "mongoDb"
+  ],
+  "author": "Yaroslav Pitsur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StrongGarl1c/magazunCRUD/issues"
+  },
+  "homepage": "https://github.com/StrongGarl1c/magazunCRUD#readme"
+}
