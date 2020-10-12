@@ -1,8 +1,10 @@
 const express = require("express");
+// eslint-disable-next-line no-unused-vars
 const { response } = require("express");
 const app = express();
+// eslint-disable-next-line no-undef
 const port = process.env.PORT || 5000;
-const databaseCRUD = require("../db/databaseCRUD.js");
+// const databaseCRUD = require("../db/databaseCRUD.js");
 const router = express.Router();
 
 // rout paths
@@ -23,6 +25,6 @@ app.use("/delete", _delete);
 app.use("/update", update);
 
 // connect to db
-databaseCRUD.run().catch((err) => {
-    console.error(err);
-});
+// databaseCRUD.run().catch((err) => {
+//     console.error(err);
+// });
