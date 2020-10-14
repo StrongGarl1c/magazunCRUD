@@ -1,6 +1,16 @@
 <h1>{{ title }}</h1>
-<p>your input is {{ inputData }}</p>
-<form action="/create">
-    <input type="text" name="id">
-    <button type="submit">input data</button>
+<p>Додати товар</p>
+<form action="/create/insert" method="post">
+    <input type="text" name="name" id="name" placeholder="назва">
+    <input type="text" name="origin" placeholder="країна вироб.">
+    <input type="text" name="price" placeholder="ціна">
+    <input type="text" name="type" placeholder="тип">
+    <input type="text" name="quantity" placeholder="кількість">
+    <button type="submit" onclick="alert('Товар додано!')">insert data</button>
 </form>
+<style>
+    input {
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>

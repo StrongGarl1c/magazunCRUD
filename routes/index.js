@@ -2,8 +2,9 @@ const express = require('express');
 
 const router = express.Router();
 
+// render page
 router.get('/', (req, res) => {
-  res.send('<h1>update.js</h1>');
+  res.render('index', { title: 'magazunCRUD' });
 });
 
 module.exports = router;
