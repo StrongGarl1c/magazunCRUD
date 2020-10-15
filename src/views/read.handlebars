@@ -1,1 +1,23 @@
-<p>{{someData}}</p>
+<a href="http://localhost:5000/create">Create</a>
+<a href="http://localhost:5000/read">Read</a>
+<a href="http://localhost:5000/update">Update</a>
+<a href="http://localhost:5000/delete">Delete</a>
+<div>
+    <ul>
+        {{#each someData}}
+        <li>Id: {{ this._id }}</li>
+        <li>Назва: {{ this.name }}</li>
+        <li>Виробник: {{ this.origin }}</li>
+        <li>Ціна: {{ this.price }}</li>
+        <li>Тип: {{ this.type }}</li>
+        <li>Кількість: {{ this.quantity }}</li>
+        <br />
+        {{/each}}
+    </ul>
+</div>
+
+<style>
+    ul {
+        list-style: none;
+    }
+</style>
