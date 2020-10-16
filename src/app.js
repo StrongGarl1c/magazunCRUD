@@ -13,7 +13,7 @@ const read = require('../routes/read');
 const Delete = require('../routes/Delete');
 const create = require('../routes/create');
 const update = require('../routes/update');
-const test = require('../routes/test');
+const readById = require('../routes/readById');
 
 app.listen(port);
 app.use(express.static('../public'));
@@ -28,4 +28,4 @@ app.use('/read', read);
 app.use('/create', create);
 app.use('/delete', Delete);
 app.use('/update', update);
-app.use('/test', test);
+app.use('/readById', readById);

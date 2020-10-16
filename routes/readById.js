@@ -1,35 +1,30 @@
 const express = require('express');
+const objectId = require('mongodb').ObjectId;
 
+const router = express.Router();
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
 // eslint-disable-next-line no-undef
 const uri = process.env.API_URI;
 
-const router = express.Router();
-
 // render page
 router.get('/', (req, res) => {
-  res.render('create', { title: 'welcome to magazunCRUD' });
+  res.render('readById');
 });
 
-router.post('/insert', (req, res) => {
-  const towar = {
-    name: req.body.name,
-    origin: req.body.origin,
-    price: req.body.price,
-    type: req.body.type,
-    quantity: req.body.quantity,
-  };
-
+// read from database
+router.post('/submit', (req, res) => {
+  // connect to db
   async function run() {
     const client = new MongoClient(uri, { useUnifiedTopology: true });
     await client.connect();
     const database = client.db('magazunCRUD');
     const collection = database.collection('tovar');
-    collection.insertOne(towar, () => {
-      client.close();
-    });
-    res.redirect('/create');
+
+    const { id } = req.body;
+    const dataArray = await collection.findOne({ _id: objectId(id) });
+    await client.close();
+    res.render('readById', { someData: dataArray });
   }
   run().catch();
 });

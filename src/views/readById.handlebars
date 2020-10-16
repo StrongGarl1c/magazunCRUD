@@ -1,0 +1,30 @@
+<a href="/create">Create</a>
+<a href="/read">Read</a>
+<a href="/readById">Read by id</a>
+<a href="/update">Update</a>
+<a href="/delete">Delete</a>
+
+<h2>Read by id</h2>
+<form action="/readById/submit" method="post">
+    <input type="text" name="id" placeholder="id">
+    <button type="submit">read by id</button>
+</form>
+
+{{#if someData}}
+<div>
+    <ul>
+        <li>Id: {{ someData._id }}</li>
+        <li>Назва: {{ someData.name }}</li>
+        <li>Виробник: {{ someData.origin }}</li>
+        <li>Ціна: {{ someData.price }}</li>
+        <li>Тип: {{ someData.type }}</li>
+        <li>Кількість: {{ someData.quantity }}</li>
+        <br />
+    </ul>
+</div>
+{{/if}}
+<style>
+    ul {
+        list-style: none;
+    }
+</style>
