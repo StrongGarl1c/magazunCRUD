@@ -9,7 +9,7 @@ const router = express.Router();
 
 // render page
 router.get('/', (req, res) => {
-  res.render('create', { title: 'welcome to magazunCRUD' });
+  res.render('create', { title: 'Create' });
 });
 
 router.post('/insert', (req, res) => {

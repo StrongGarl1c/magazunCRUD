@@ -23,7 +23,7 @@ router.get('/', (req, res) => {
       },
       () => {
         client.close();
-        res.render('read', { someData: dataArray });
+        res.render('read', { title: 'Read', someData: dataArray });
       },
     );
   }
