@@ -1,19 +1,18 @@
 const express = require('express');
 const objectId = require('mongodb').ObjectId;
+require('dotenv').config({ path: '../config/.env' });
+const { MongoClient } = require('mongodb');
 
 const router = express.Router();
-require('dotenv').config();
-const { MongoClient } = require('mongodb');
-// eslint-disable-next-line no-undef
 const uri = process.env.API_URI;
 
 // render page
 router.get('/', (req, res) => {
-  res.render('readById');
+  res.render('readById', { title: 'Read By Id' });
 });
 
-// read from database
-router.post('/submit', (req, res) => {
+// read from database by id
+router.post('/', (req, res) => {
   // connect to db
   async function run() {
     const client = new MongoClient(uri, { useUnifiedTopology: true });
@@ -21,10 +20,11 @@ router.post('/submit', (req, res) => {
     const database = client.db('magazunCRUD');
     const collection = database.collection('tovar');
 
+    // find and return result
     const { id } = req.body;
     const dataArray = await collection.findOne({ _id: objectId(id) });
     await client.close();
-    res.render('readById', { someData: dataArray });
+    res.render('readById', { title: 'Read By Id', someData: dataArray });
   }
   run().catch();
 });

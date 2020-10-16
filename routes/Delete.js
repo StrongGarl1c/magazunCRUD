@@ -1,13 +1,12 @@
 const express = require('express');
 const objectId = require('mongodb').ObjectId;
+require('dotenv').config({ path: '../config/.env' });
+const { MongoClient } = require('mongodb');
 
 const router = express.Router();
-require('dotenv').config();
-const { MongoClient } = require('mongodb');
-// eslint-disable-next-line no-undef
 const uri = process.env.API_URI;
 
-// read from database
+// render page and show data from db
 router.get('/', (req, res) => {
   // connect to db
   async function run() {
@@ -16,6 +15,7 @@ router.get('/', (req, res) => {
     const database = client.db('magazunCRUD');
     const collection = database.collection('tovar');
 
+    // find and extract data from db
     const dataArray = [];
     const cursor = collection.find({}).sort({ _id: -1 });
     cursor.forEach(
@@ -24,14 +24,14 @@ router.get('/', (req, res) => {
       },
       () => {
         client.close();
-        res.render('delete', { someData: dataArray });
+        res.render('delete', { title: 'Delete by id', someData: dataArray });
       },
     );
   }
   run();
 });
 
-// read from database
+// delete from database
 router.post('/', (req, res) => {
   // connect to db
   async function run() {
@@ -40,6 +40,7 @@ router.post('/', (req, res) => {
     const database = client.db('magazunCRUD');
     const collection = database.collection('tovar');
 
+    // delete operation
     const { id } = req.body;
     await collection.findOneAndDelete({ _id: objectId(id) });
     await client.close();

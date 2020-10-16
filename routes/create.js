@@ -1,10 +1,8 @@
 const express = require('express');
-
-require('dotenv').config();
+require('dotenv').config({ path: '../config/.env' });
 const { MongoClient } = require('mongodb');
-// eslint-disable-next-line no-undef
-const uri = process.env.API_URI;
 
+const uri = process.env.API_URI;
 const router = express.Router();
 
 // render page
@@ -12,6 +10,7 @@ router.get('/', (req, res) => {
   res.render('create', { title: 'Create' });
 });
 
+// insert data
 router.post('/insert', (req, res) => {
   const towar = {
     name: req.body.name,

@@ -1,11 +1,8 @@
 const express = require('express');
-// eslint-disable-next-line no-unused-vars
-const { response } = require('express');
+const exphbs = require('express-handlebars');
 
 const app = express();
-// eslint-disable-next-line no-undef
 const port = process.env.PORT || 5000;
-const exphbs = require('express-handlebars');
 
 // rout paths
 const routes = require('../routes/index');
@@ -15,6 +12,7 @@ const create = require('../routes/create');
 const update = require('../routes/update');
 const readById = require('../routes/readById');
 
+// express
 app.listen(port);
 app.use(express.static('../public'));
 app.use(express.json());

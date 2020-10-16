@@ -1,0 +1,22 @@
+<a href="/create">Create</a>
+<a href="/read">Read</a>
+<a href="/readById">Read by id</a>
+<a href="/update">Update</a>
+<a href="/delete">Delete</a>
+<h2>{{ title }}</h2>
+<form action="/update/submit" method="post">
+    <input type="text" name="id" placeholder="id" required>
+    <input type="text" name="name" placeholder="назва " required>
+    <input type="text" name="origin" placeholder="країна виробник" required>
+    <input type="text" name="price" placeholder="ціна" required>
+    <input type="text" name="type" placeholder="тип">
+    <input type="text" name="quantity" placeholder="кількість" required>
+    <button type="submit">Update</button>
+</form>
+
+<style>
+    input {
+        display: block;
+        margin-bottom: 10px;
+    }
+</style>
