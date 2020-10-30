@@ -1,5 +1,7 @@
 const express = require('express');
-require('dotenv').config({ path: './config/.env' });
+require('dotenv').config({
+  path: './src/config/.env',
+});
 const { MongoClient } = require('mongodb');
 
 const router = express.Router();
@@ -27,7 +29,7 @@ router.get('/', (req, res) => {
       },
     );
   }
-  run();
+  run().catch();
 });
 
 module.exports = router;

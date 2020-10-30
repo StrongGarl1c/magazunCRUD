@@ -1,5 +1,5 @@
 const express = require('express');
-require('dotenv').config({ path: './config/.env' });
+require('dotenv').config({ path: './src/config/.env' });
 const { MongoClient } = require('mongodb');
 
 const uri = process.env.API_URI;

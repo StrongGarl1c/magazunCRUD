@@ -14,9 +14,10 @@ const readById = require('./routes/readById');
 
 // express
 app.listen(port);
-app.use(express.static('../public'));
+app.use(express.static(`${__dirname}../public`));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.set('views', `${__dirname}/views`);
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 

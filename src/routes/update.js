@@ -1,7 +1,7 @@
 const express = require('express');
 const objectId = require('mongodb').ObjectId;
 const { MongoClient } = require('mongodb');
-require('dotenv').config({ path: './config/.env' });
+require('dotenv').config({ path: './src/config/.env' });
 
 const router = express.Router();
 const uri = process.env.API_URI;
